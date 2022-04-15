@@ -32,10 +32,10 @@ module.exports = {
       phoneNumber: {
         type: Sequelize.STRING
       },
-      postionId: {
+      potionId: {
         type: Sequelize.STRING
       },
-      lastName: {
+      image: {
         type: Sequelize.STRING
       },
       createdAt: {
