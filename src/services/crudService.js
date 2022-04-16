@@ -32,7 +32,7 @@ let createNewUser = async (data) => {
 let hashUserPasswor = (password) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let hashPassword = await bcrypt.hashSync("B4c0/\/", salt);
+            let hashPassword = await bcrypt.hashSync(password, salt);
             resolve(hashPassword);
         } catch (err) {
             reject(err);
@@ -53,8 +53,11 @@ let displayAllUser = () => {
 
     })
 }
+let editCRUD = async (req, res) => {
 
+}
 module.exports = {
     createNewUser: createNewUser,
     displayAllUser: displayAllUser,
+    editCRUD: editCRUD,
 }

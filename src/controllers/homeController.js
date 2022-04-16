@@ -3,10 +3,10 @@ import crudService from '../services/crudService';
 let getHomePage = async (req, res) => {
     try {
         let data = await db.User.findAll();
-        console.log(data)
+
         return res.render('homePage.ejs', { data: JSON.stringify(data) })
     } catch (err) {
-        console.error(err);
+
     }
     return res.render('homePage.ejs', { data: data });
 }
@@ -17,20 +17,27 @@ let getCRUD = async (req, res) => {
 }
 
 let postCRUD = async (req, res) => {
-    let message = await crudService.createNewUser(req.body);
-    console.log(message);
+    await crudService.createNewUser(req.body);
+
     return res.send('CRUD FROM SERVER')
 }
 let displayAllUser = async (req, res) => {
     let users = await crudService.displayAllUser();
-    console.log(users);
+
     return res.render('displayUser.ejs', {
         users: users,
     });
+}
+
+let editCRUD = async (req, res) => {
+    let id = req.query.id;
+    console.log(id);
+    return res.send('You are here with edit')
 }
 module.exports = {
     getHomePage: getHomePage,
     getCRUD: getCRUD,
     postCRUD: postCRUD,
     displayAllUser: displayAllUser,
+    editCRUD: editCRUD,
 }
